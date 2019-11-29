@@ -1,7 +1,8 @@
 ## springboot学习
 
 
-##资料
+## 资料
+
 [Spring doc](https://spring.io/guides)
 [Spring Web](https://spring.io/guides/gs/serving-web-content/)
 [Bootstrap](https://www.bootcss.com/)
@@ -9,6 +10,7 @@
 [Github OAuth](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 [authorizing-oauth-apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
 
-##工具
+## 工具
+
 [Git](https://git-scm.com/download)
 [visual-paradigm](https://www.visual-paradigm.com/) 
