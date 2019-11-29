@@ -7,6 +7,7 @@
 [Bootstrap](https://www.bootcss.com/)
 [Github deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 [Github OAuth](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+[authorizing-oauth-apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
 
 ##工具
 [Git](https://git-scm.com/download)
