@@ -17,7 +17,12 @@ public class AuthorizeController {
   @Autowired
   private GithubProvider githubProvider;
 
-
+  /**
+   * 获取code,和state,http://localhost:8887/callback?code=f2c9366110ed06771a84&state=1
+   * @param code
+   * @param state
+   * @return
+   */
   @GetMapping("/callback")
   public String callback(@RequestParam(name = "code") String code,
                          @RequestParam(name = "state") String state){

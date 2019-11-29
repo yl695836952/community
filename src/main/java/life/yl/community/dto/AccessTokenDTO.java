@@ -3,7 +3,7 @@ package life.yl.community.dto;
 import lombok.Data;
 
 /**
- * 授权的对象类
+ * 授权Token的对象类
  * @author yanglin
  * @create 2019-11-29 17:16
  */
