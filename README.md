@@ -17,10 +17,8 @@
 
 
 
-##脚本
-
+## 脚本
 ```
-
   CREATE TABLE `user` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `NAME` varchar(50) DEFAULT NULL,
