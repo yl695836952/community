@@ -19,7 +19,7 @@
 
 ##脚本
 
-'''
+```
 
   CREATE TABLE `user` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,4 +30,4 @@
     `GMT_MODIFIED` bigint(20) DEFAULT NULL,
     PRIMARY KEY (`id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-'''
+```
