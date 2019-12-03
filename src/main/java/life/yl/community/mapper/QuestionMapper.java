@@ -3,6 +3,9 @@ package life.yl.community.mapper;
 import life.yl.community.model.Question;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author yanglin
@@ -11,6 +14,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface QuestionMapper {
 
-  @Insert("insert into question(title,description,gmt_create,gmt_modified,creator,tag) values (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
+  @Insert("insert into question(title,description,gmt_create,gmt_modified,creator,tag,comment_count,view_count) values (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag},#{commentCount},#{viewCount})")
   public void create(Question question);
+
+  @Select("select * from question")
+  List<Question> list();
 }

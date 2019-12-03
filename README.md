@@ -20,16 +20,18 @@
 ## 脚本
 ```
 user表
-  CREATE TABLE `user` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `NAME` varchar(50) DEFAULT NULL,
-    `ACCOUNT_ID` varchar(100) DEFAULT NULL,
-    `TOKEN` char(36) DEFAULT NULL,
-    `GMT_CREATE` bigint(20) DEFAULT NULL,
-    `GMT_MODIFIED` bigint(20) DEFAULT NULL,
-    `bio` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-  ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+    CREATE TABLE `user` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `NAME` varchar(50) DEFAULT NULL,
+      `ACCOUNT_ID` varchar(100) DEFAULT NULL,
+      `TOKEN` char(36) DEFAULT NULL,
+      `GMT_CREATE` bigint(20) DEFAULT NULL,
+      `GMT_MODIFIED` bigint(20) DEFAULT NULL,
+      `bio` varchar(255) DEFAULT NULL,
+      `avatar_url` varchar(100) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
 ```
 ```
 question表
