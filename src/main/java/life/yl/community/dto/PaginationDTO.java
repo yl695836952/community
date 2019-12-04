@@ -18,6 +18,7 @@ public class PaginationDTO {
   private boolean showNext;//后一页
   private boolean showEndPage;//最后一页
   private Integer totalPage;
+  private Integer totalPage1;
   private Integer page;
 
   private  List<Integer> pages = new ArrayList<>();
@@ -25,27 +26,16 @@ public class PaginationDTO {
 
   /**
    * 计算出分页的所有 页数--
-   * @param totalCount
+   * @param totalPage
    * @param page
-   * @param size
    */
-  public void setPagination(Integer totalCount, Integer page, Integer size) {
-    //判断页数能不能整除
-    if(totalCount % size == 0){
-      totalPage = totalCount / size;
-    }else {
-      totalPage = totalCount / size + 1;
-    }
+  public void setPagination(Integer totalPage, Integer page) {
 
-    if(page<1){
-      page = 1;
-    }
-
-    if(page>totalPage){
-      page = totalPage;
-    }
+    this.totalPage = totalPage;
 
     this.page = page;
+
+
 
     pages.add(page);
     for(int i=1;i<=3;i++){
