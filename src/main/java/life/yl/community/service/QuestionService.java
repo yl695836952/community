@@ -2,6 +2,7 @@ package life.yl.community.service;
 
 import life.yl.community.dto.PaginationDTO;
 import life.yl.community.dto.QuestionDTO;
+import life.yl.community.exception.CustomizeException;
 import life.yl.community.mapper.QuestionMapper;
 import life.yl.community.mapper.UserMapper;
 import life.yl.community.model.Question;
@@ -123,6 +124,9 @@ public class QuestionService {
 
   public QuestionDTO getById(Integer id) {
     Question question = questionMapper.selectByPrimaryKey(id);
+    if(question == null){
+      throw new CustomizeException("你找的问题不存在，请更换~~");
+    }
     User user = userMapper.selectByPrimaryKey(question.getCreator());
     QuestionDTO questionDTO = new QuestionDTO();
     BeanUtils.copyProperties(question, questionDTO);
@@ -146,7 +150,10 @@ public class QuestionService {
       QuestionExample example = new QuestionExample();
       example.createCriteria()
               .andCreatorEqualTo(question.getId());
-      questionMapper.updateByExampleSelective(updateQuestion, example);
+      int updated = questionMapper.updateByExampleSelective(updateQuestion, example);
+      if(updated != 1){
+        throw new CustomizeException("你找的问题不存在，请更换~~");
+      }
     }
   }
 }
