@@ -21,7 +21,7 @@
 ```
 user表
     CREATE TABLE `user` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
       `NAME` varchar(50) DEFAULT NULL,
       `ACCOUNT_ID` varchar(100) DEFAULT NULL,
       `TOKEN` char(36) DEFAULT NULL,
@@ -36,12 +36,12 @@ user表
 ```
 question表
     CREATE TABLE `question` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
       `title` varchar(50) DEFAULT NULL,
       `description` text,
       `gmt_create` bigint(20) DEFAULT NULL,
       `gmt_modified` bigint(20) DEFAULT NULL,
-      `creator` int(11) DEFAULT NULL,
+      `creator` bigint(20) DEFAULT NULL,
       `comment_count` int(11) DEFAULT NULL,
       `view_count` int(11) DEFAULT NULL,
       `like_count` int(11) DEFAULT NULL,
@@ -49,6 +49,27 @@ question表
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+```
+comment表：
+  CREATE TABLE `comment` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+    `parent_id` bigint(20) NOT NULL COMMENT '父类ID',
+    `type` int(11) NOT NULL COMMENT '父类类型',
+    `commentator` bigint(20) NOT NULL COMMENT '评论人ID',
+    `gmt_create` bigint(20) NOT NULL COMMENT '创建时间',
+    `gmt_modified` bigint(20) NOT NULL COMMENT '更新时间',
+    `like_count` bigint(20) unsigned zerofill DEFAULT NULL,
+    `content` varchar(1024) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+
+
+
+
+
+
 ```bash
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
