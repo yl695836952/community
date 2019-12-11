@@ -35,7 +35,7 @@ public class CommentService {
       throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
     }
 
-    if(comment.getType() == null || CommentTypeEnum.isExist(comment.getType())){
+    if(comment.getType() == null || !CommentTypeEnum.isExist(comment.getType())){
       throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
     }
 

@@ -3,7 +3,6 @@ package life.yl.community.controller;
 import life.yl.community.dto.CommentDTO;
 import life.yl.community.dto.ResultDTO;
 import life.yl.community.exception.CustomizeErrorCode;
-import life.yl.community.mapper.CommentMapper;
 import life.yl.community.model.Comment;
 import life.yl.community.model.User;
 import life.yl.community.service.CommentService;
@@ -12,10 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 评论
@@ -28,6 +26,7 @@ public class CommentController {
   @Autowired
   private CommentService commentService;
 
+  @ResponseBody
   @RequestMapping(value = "/comment",method = RequestMethod.POST)
   public Object post(@RequestBody CommentDTO commentDTO,
                      HttpServletRequest request){
