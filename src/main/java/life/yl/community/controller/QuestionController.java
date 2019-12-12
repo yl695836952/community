@@ -2,6 +2,7 @@ package life.yl.community.controller;
 
 import life.yl.community.dto.CommentDTO;
 import life.yl.community.dto.QuestionDTO;
+import life.yl.community.enums.CommentTypeEnum;
 import life.yl.community.service.CommentService;
 import life.yl.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,12 @@ public class QuestionController {
                          Model model){
     QuestionDTO questionDTO = questionService.getById(id);
 
-    List<CommentDTO> commentCreateDTOS = commentService.listByQuestionId(id);
+    List<CommentDTO> commentCreateDTOS = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
     //累加阅读数
     questionService.incView(id);
     model.addAttribute("question",questionDTO);
+    model.addAttribute("comments",commentCreateDTOS);
     return "question";
   }
 }

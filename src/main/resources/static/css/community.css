@@ -30,9 +30,15 @@ body{
     margin-top: 15px;
 }
 
+.question-title{
+    margin-top: 25px;
+}
+
 .community-menu {
     color:#999;
     font-size: 13px;
+    display: block;
+    margin-bottom: 15px;
 }
 
 .jumbotron{
@@ -46,6 +52,12 @@ body{
 .btn-comment{
     float: right;
     margin-bottom: 10px;
+}
+
+.comments{
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
 
 .comment-sp{
@@ -62,6 +74,21 @@ body{
     cursor: pointer;
 }
 
+.menu .active{
+    color: #499ef3;
+}
+
 .menu .icon:hover{
     color: #499ef3;
+}
+
+.sub-comments{
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.sub-comments .btn{
+    margin: 10px 0;
 }
