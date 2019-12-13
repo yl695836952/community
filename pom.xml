@@ -120,8 +120,8 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>6.1.0</version>
                 <configuration>
-<!--                    <url>jdbc:mysql://13.15.23.20:3306/springboot</url>-->
-                    <url>jdbc:mysql://localhost:3306/springboot</url>
+                    <url>jdbc:mysql://13.15.23.20:3306/springboot</url>
+<!--                    <url>jdbc:mysql://localhost:3306/springboot</url>-->
                     <user>root</user>
                     <password>123456</password>
                 </configuration>

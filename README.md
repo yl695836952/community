@@ -30,7 +30,7 @@ user表
       `bio` varchar(255) DEFAULT NULL,
       `avatar_url` varchar(100) DEFAULT NULL,
       PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 ```
 ```
@@ -47,7 +47,7 @@ question表
       `like_count` int(11) DEFAULT NULL,
       `tag` varchar(255) DEFAULT NULL,
       PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 ```
 ```
 comment表：
@@ -60,8 +60,9 @@ comment表：
     `gmt_modified` bigint(20) NOT NULL COMMENT '更新时间',
     `like_count` bigint(20) unsigned zerofill DEFAULT NULL,
     `content` varchar(1024) DEFAULT NULL,
+    `comment_count` int(10) unsigned zerofill DEFAULT NULL,
     PRIMARY KEY (`id`)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 ```
 
 
