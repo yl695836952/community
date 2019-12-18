@@ -120,7 +120,8 @@ function collapseComments(e) {
     }
 }
 
-function selectTag(value) {
+function selectTag(e) {
+    var value = e.getAttribute("data-tag");
     var previous = $("#tag").val();
 
     if(previous.indexOf(value) == -1){

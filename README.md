@@ -64,7 +64,19 @@ comment表：
     PRIMARY KEY (`id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 ```
-
+```
+notification表：
+    CREATE TABLE `notification` (
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
+      `notifier` bigint(20) unsigned zerofill NOT NULL,
+      `receiver` bigint(20) unsigned zerofill NOT NULL,
+      `outer_id` bigint(20) unsigned zerofill NOT NULL,
+      `type` int(10) unsigned zerofill NOT NULL,
+      `gmt_create` bigint(20) unsigned zerofill NOT NULL,
+      `status` int(10) unsigned zerofill NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
 
 

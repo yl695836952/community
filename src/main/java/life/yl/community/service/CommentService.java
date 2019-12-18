@@ -2,6 +2,8 @@ package life.yl.community.service;
 
 import life.yl.community.dto.CommentDTO;
 import life.yl.community.enums.CommentTypeEnum;
+import life.yl.community.enums.NotificationStatusEnum;
+import life.yl.community.enums.NotificationTypeEnum;
 import life.yl.community.exception.CustomizeErrorCode;
 import life.yl.community.exception.CustomizeException;
 import life.yl.community.mapper.*;
@@ -40,6 +42,9 @@ public class CommentService {
   @Autowired
   private CommentExtMapper commentExtMapper;
 
+  @Autowired
+  private NotificationMapper notificationMapper;
+
   @Transactional
   public void insert(Comment comment) {
     if(comment.getParentId() == null || comment.getParentId() == 0){
@@ -63,6 +68,9 @@ public class CommentService {
       comment1.setId(comment.getParentId());
       comment1.setCommentCount(1);
       commentExtMapper.incCommentCount(comment1);
+      //创建通知
+      createNotify(comment, dbComment.getCommentator(), NotificationTypeEnum.REPLY_COMMENT);
+
     }else {
       //回复问题
       Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -72,7 +80,28 @@ public class CommentService {
       commentMapper.insert(comment);
       question.setCommentCount(1);
       questionExtMapper.incCommentCount(question);
+
+      //创建通知
+     createNotify(comment, question.getCreator(), NotificationTypeEnum.REPLY_QUESTION);
     }
+  }
+
+  /**
+   * 创建通知
+   * @param notificationType
+   * @param comment
+   *
+   */
+  private void createNotify(Comment comment, Long receiver, NotificationTypeEnum notificationType) {
+    //回复的看与未看
+    Notification notification = new Notification();
+    notification.setGmtCreate(System.currentTimeMillis());
+    notification.setType(notificationType.getType());
+    notification.setOuterId(comment.getParentId());
+    notification.setNotifier(comment.getCommentator());
+    notification.setStatus(NotificationStatusEnum.UNREAD.getStatus());
+    notification.setReceiver(receiver);
+    notificationMapper.insert(notification);
   }
 
   public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {
