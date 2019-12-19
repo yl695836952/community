@@ -1,6 +1,5 @@
 package life.yl.community.dto;
 
-import life.yl.community.model.User;
 import lombok.Data;
 
 /**
@@ -13,6 +12,12 @@ public class NotificationDTO {
   private Long id;
   private Long gmtCreate;
   private Integer status;
-  private User user;
-  private String outerTile;
+  private Long notifier;
+  private String notifierName;
+  private String outerTitle;
+  private String typeName;
+  private Long outerId;
+
+  private Integer type;
+  //P49 ---51
 }

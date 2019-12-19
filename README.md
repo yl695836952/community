@@ -74,6 +74,8 @@ notification表：
       `type` int(10) unsigned zerofill NOT NULL,
       `gmt_create` bigint(20) unsigned zerofill NOT NULL,
       `status` int(10) unsigned zerofill NOT NULL,
+      `notifier_name` varchar(255) NOT NULL DEFAULT '',
+      `outer_title` varchar(255) NOT NULL,
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
