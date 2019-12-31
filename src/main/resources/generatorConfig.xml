@@ -20,16 +20,16 @@
         <javaTypeResolver >
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-
+<!--model-->
         <javaModelGenerator targetPackage="life.yl.community.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
-
+<!--xml-->
         <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
-
+<!--mapper-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="life.yl.community.mapper"  targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
